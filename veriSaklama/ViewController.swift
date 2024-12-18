@@ -47,5 +47,21 @@ class ViewController: UIViewController {
         labelBirthDay.text = "BirthDay : " + textFieldBirthDay.text!
     }
     
+    
+    @IBAction func deleteButton(_ sender: Any) {
+        
+        let storedName = UserDefaults.standard.object(forKey: "name")
+        let storedBirthDay = UserDefaults.standard.object(forKey: "BirthDay")
+        
+        if storedName is String {
+            UserDefaults.standard.removeObject(forKey: "name")
+            labelName.text = "Name : "
+        }
+        if (storedBirthDay as? String) != nil {
+            UserDefaults.standard.removeObject(forKey: "BirthDay")
+            labelBirthDay.text = "BirthDay : "
+        }
+    }
+    
 }
 
